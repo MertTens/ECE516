@@ -20,22 +20,22 @@ def single_correct(target, reference, gam, index):
     for x in range(x_res):
         for y in range(y_res):
             target[y][x][index] = ((reference[y][x][index] ** (1/gam)) * 2) ** gam
-            if(((reference[y][x][index] ** (1/gam)) * 2) ** gam > 255):
+            if(((reference[y][x][index] ** (1/gam)) * 3) ** gam > 255):
                 target[y][x][index] = 255; 
     return target
 
-normal = cv2.imread('normal.jpg')
+normal = cv2.imread('normal3.jpg')
 normal = cv2.resize(normal, (x_res, y_res)) 
 #gray_normal = cv2.cvtColor(normal, cv2.COLOR_BGR2GRAY)
 
-u_expose = cv2.imread('u_expose.jpg')
+u_expose = cv2.imread('u_expose3.jpg')
 u_expose = cv2.resize(u_expose, (x_res, y_res)) 
 #gray_u_expose = cv2.cvtColor(u_expose, cv2.COLOR_BGR2GRAY)
 
-corrected = cv2.imread('u_expose.jpg')
+corrected = cv2.imread('u_expose3.jpg')
 corrected = cv2.resize(corrected, (x_res, y_res)) 
 
-best_corrected = cv2.imread('u_expose.jpg')
+best_corrected = cv2.imread('u_expose3.jpg')
 best_corrected = cv2.resize(best_corrected, (x_res, y_res)) 
 
 #gray_corrected = cv2.cvtColor(corrected, cv2.COLOR_BGR2GRAY)
@@ -45,13 +45,13 @@ best_corrected = cv2.resize(best_corrected, (x_res, y_res))
 
 
 
-num_gammas = 1000
+num_gammas = 10
 min_gamma_r = 0.5
 min_gamma_g = 0.5
-min_gamma_b = 0.3
-max_gamma_r = 1
-max_gamma_g = 1
-max_gamma_b = 1
+min_gamma_b = 0.5
+max_gamma_r = 1.5
+max_gamma_g = 1.5
+max_gamma_b = 1.5
 step_r = (max_gamma_r - min_gamma_r)/num_gammas
 step_g = (max_gamma_g - min_gamma_g)/num_gammas
 step_b = (max_gamma_b - min_gamma_b)/num_gammas
@@ -122,14 +122,14 @@ gamma_new_g = best_gamma_g
 gamma_new_b = best_gamma_b
 for x in range(x_res):
     for y in range(y_res):
-        best_corrected[y][x][0] = ((u_expose[y][x][0] ** (1/gamma_new_r)) * 2) ** gamma_new_r
-        best_corrected[y][x][1] = ((u_expose[y][x][1] ** (1/gamma_new_g)) * 2) ** gamma_new_g
-        best_corrected[y][x][2] = ((u_expose[y][x][2] ** (1/gamma_new_b)) * 2) ** gamma_new_b
-        if(best_corrected[y][x][0] > 255):
+        best_corrected[y][x][0] = ((u_expose[y][x][0] ** (1/gamma_new_r)) * 3) ** gamma_new_r
+        best_corrected[y][x][1] = ((u_expose[y][x][1] ** (1/gamma_new_g)) * 3) ** gamma_new_g
+        best_corrected[y][x][2] = ((u_expose[y][x][2] ** (1/gamma_new_b)) * 3) ** gamma_new_b
+        if(((u_expose[y][x][0] ** (1/gamma_new_r)) * 3) ** gamma_new_r > 255):
             best_corrected[y][x][0] = 255; 
-        if(best_corrected[y][x][1] > 255):
+        if(((u_expose[y][x][1] ** (1/gamma_new_g)) * 3) ** gamma_new_g > 255 > 255):
             best_corrected[y][x][1] = 255; 
-        if(best_corrected[y][x][2] > 255):
+        if(((u_expose[y][x][2] ** (1/gamma_new_b)) * 3) ** gamma_new_b > 255 > 255):
             best_corrected[y][x][2] = 255; 
 
 
@@ -142,7 +142,7 @@ axb.plot(gammas_b, errors_b, label = "MSE of blue gammas")
 plt.legend()
 plt.show()
 
-cv2.imshow('corrected', best_corrected)
-cv2.imshow('under exposed', u_expose)
-cv2.imshow('normal', normal)
+cv2.imshow('corrected3', best_corrected)
+cv2.imshow('under exposed3', u_expose)
+cv2.imshow('normal3', normal)
 cv2.waitKey(0)
