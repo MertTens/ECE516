@@ -72,9 +72,9 @@ best_error_r = 100000000000
 best_error_g = 0.7664
 best_error_b = 0.5154
 
-best_gamma_r = 0.9615
+best_gamma_r = 0.9545
 best_gamma_g = 0.7664
-best_gamma_b = 0.5154
+best_gamma_b = 0.5149
 
 #print(MSE(u_expose, normal))
 
@@ -110,6 +110,13 @@ best_gamma_b = 0.5154
 #print("The best error_g was", best_error_g)
 #print("The best error_b was", best_error_b)
 #print()
+#The best gamma_r was 0.9545
+#The best gamma_g was 0.766
+#The best gamma_b was 0.5149
+#The best error_r was 193.35154171490342
+#The best error_g was 332.93734717408427
+#The best error_b was 887.0112264523274
+
 
 gamma_new_r = best_gamma_r
 gamma_new_g = best_gamma_g

@@ -45,13 +45,13 @@ best_corrected = cv2.resize(best_corrected, (x_res, y_res))
 
 
 
-num_gammas = 5
-min_gamma_r = 0.89
-min_gamma_g = 0.74
-min_gamma_b = 0.51
+num_gammas = 1000
+min_gamma_r = 0.5
+min_gamma_g = 0.5
+min_gamma_b = 0.3
 max_gamma_r = 1
-max_gamma_g = 0.78
-max_gamma_b = 0.53
+max_gamma_g = 1
+max_gamma_b = 1
 step_r = (max_gamma_r - min_gamma_r)/num_gammas
 step_g = (max_gamma_g - min_gamma_g)/num_gammas
 step_b = (max_gamma_b - min_gamma_b)/num_gammas
