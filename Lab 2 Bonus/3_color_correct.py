@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 
 
 
-x_res = 500
-y_res = 500
+x_res = 400
+y_res = 400
 
 def MSE(original, reference, index):
     mse = 0
@@ -19,7 +19,7 @@ def MSE(original, reference, index):
 def single_correct(target, reference, gam, index):
     for x in range(x_res):
         for y in range(y_res):
-            target[y][x][index] = ((reference[y][x][index] ** (1/gam)) * 2) ** gam
+            target[y][x][index] = ((reference[y][x][index] ** (1/gam)) * 3) ** gam
             if(((reference[y][x][index] ** (1/gam)) * 3) ** gam > 255):
                 target[y][x][index] = 255; 
     return target
@@ -45,7 +45,7 @@ best_corrected = cv2.resize(best_corrected, (x_res, y_res))
 
 
 
-num_gammas = 10
+num_gammas = 2000
 min_gamma_r = 0.5
 min_gamma_g = 0.5
 min_gamma_b = 0.5

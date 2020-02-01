@@ -20,18 +20,18 @@ def single_correct(target, reference, gam, index):
                 target[y][x][index] = 255; 
     return target
 
-normal = cv2.imread('normal.jpg')
+normal = cv2.imread('normal3.jpg')
 #normal = cv2.resize(normal, (x_res, y_res)) 
 #gray_normal = cv2.cvtColor(normal, cv2.COLOR_BGR2GRAY)
 
-u_expose = cv2.imread('u_expose.jpg')
+u_expose = cv2.imread('u_expose3.jpg')
 #u_expose = cv2.resize(u_expose, (x_res, y_res)) 
 #gray_u_expose = cv2.cvtColor(u_expose, cv2.COLOR_BGR2GRAY)
 
-corrected = cv2.imread('u_expose.jpg')
+corrected = cv2.imread('u_expose3.jpg')
 #corrected = cv2.resize(corrected, (x_res, y_res)) 
 
-best_corrected = cv2.imread('u_expose.jpg')
+best_corrected = cv2.imread('u_expose3.jpg')
 
 height, width, channels = best_corrected.shape
 
@@ -116,6 +116,14 @@ best_gamma_b = 0.5149
 #The best error_r was 193.35154171490342
 #The best error_g was 332.93734717408427
 #The best error_b was 887.0112264523274
+
+#for second image
+#The best gamma_r was 1.3175
+#The best gamma_g was 0.909
+#The best gamma_b was 0.7475
+#The best error_r was 93.29356401369647
+#The best error_g was 301.2872126103944
+#The best error_b was 626.7995078820835
 
 
 gamma_new_r = best_gamma_r
